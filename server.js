@@ -19,7 +19,7 @@ mongoose.connection.on("connected", () => {
 // Configure Express app 
 // app.set(...)
 
-// Mount Middleware
+// ----- Middleware
 // app.use(...)
 
 // Morgan for logging HTTP requests
@@ -40,11 +40,11 @@ app.use(session({
 // Add the user (if logged in) to req.user & res.locals
 app.use(require('./middleware/add-user-to-locals-and-req'));
 
-// Routes
+// ----- Routes
 
 // GET /  (home page functionality)
 app.get('/', (req, res) => {
-  res.render('home.ejs', { title: 'Home Page' });
+  res.render('home.ejs', { title: 'Dinnergram home' });
 });
 
 // '/auth' is the "starts with" path that the request must match
@@ -52,7 +52,7 @@ app.get('/', (req, res) => {
 // defined in the router module
 app.use('/auth', require('./controllers/auth'));
 
-app.use('/unicorns', require('./controllers/unicorns'));
+app.use('/dinners', require('./controllers/dinners'));
 
 // Any requests that get this far must have a signed in 
 // user thanks to ensureSignedIn middleware
@@ -60,9 +60,9 @@ app.use(require('./middleware/ensure-signed-in'));
 // Any controller/routes mounted below here will have
 // ALL routes protected by the ensureSignedIn middleware
 
-
-
-
+app.get('/dinners', (req, res) => {
+  res.render('./dinners/index.ejs', { title: 'Dinnergram home' });
+});
 
 app.listen(port, () => {
   console.log(`The express app is ready on port ${port}!`);
