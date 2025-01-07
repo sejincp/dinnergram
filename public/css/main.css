@@ -56,7 +56,6 @@ form {
 form * {
   font-size: 2vmin;
   padding: 1vmin;
-  border-radius: 1vmin;
 }
 
 input,
@@ -72,4 +71,23 @@ form button[type='submit'] {
 button:hover {
   background-color: lightslategray;
   color: white;
+}
+
+/* Buttons */
+.btn {
+  margin-top: 5vmin;
+}
+
+.btn a {
+  text-decoration: none;
+  color: slategray;
+  background-color: rgb(231, 231, 231);
+  padding: 2vmin;
+  border-radius: 1vmin;
+
+  &:hover {
+    color: gray;
+    background-color: lightslategray;
+    color: white;
+  }
 }
