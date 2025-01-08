@@ -39,5 +39,22 @@ router.post('/', ensureSignedIn, async (req, res) => {
 // DELETE /dinners/:dinnerId (DELETE functionality / action)
 
 // GET /dinners/dinnerId/edit (EDIT functionality / action)
+router.get('/:dinnerId/edit', ensureSignedIn, async (req, res) => {
+  const dinner = await Dinner.findById(req.params.dinnerId)
+  res.render('dinners/edit.ejs', { title: 'Edit Dinner', dinner});
+});
+
+// PUT /dinners/dinnerId (UPDATE functioinality / action)
+router.put('/:dinnerId', ensureSignedIn, async (req, res) => {
+  try {
+    const dinner = req.user.dinners.id(req.params.id);
+    dinner.set(req.body);
+    await req.user.save();
+    res.redirect(`/dinners/${dinner._id}`);
+  } catch (e) {
+    console.log(e);
+    res.redirect(`/dinners/${dinner._id}`);
+  }
+})
 
 module.exports = router;

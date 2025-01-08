@@ -1,8 +1,14 @@
 <%- include('../partials/header.ejs') %>
-    <h1>Share your Dinners</h1>
-    <form action="/dinners" method="POST">
+    <h1>Edit your Dinner</h1>
+    <form action="/dinners/<%= dinner._id %>?_method=PUT" method="POST">
       <label for="title">Food Name:</label>
-      <input type="text" name="title" id="title" />
+      <input 
+          type="text" 
+          id="title" 
+          name="title" 
+          value="<%= dinner.title %>" 
+          required
+        >
       <label for="mealsource">Meal Source:</label>
         <select id="mealsource" name="mealsource" value="" required>
           <option value="Dine-out">Dine-out</option>
@@ -21,14 +27,14 @@
           </select>
       <label for="cuisine">Cuisine:</label>
         <select id="cuisine" name="cuisine" required>
-          <option value="Asian">Asian</option>
-          <option value="African">African</option>
-          <option value="European">European</option>
-          <option value="Middle Eastern">Middle Eastern</option>
-          <option value="North American">North American</option>
-          <option value="South American">South American</option>
-          <option value="Oceanian">Oceanian</option>
-          <option value="Others">Others</option>
+          <option value="Asian" <%= dinner.cuisine === 'Asian' ? 'selected' : '' %>>Asian</option>
+          <option value="African" <%= dinner.cuisine === 'African' ? 'selected' : '' %>>African</option>
+          <option value="European" <%= dinner.cuisine === 'European' ? 'selected' : '' %>>European</option>
+          <option value="Middle Eastern" <%= dinner.cuisine === 'Middle Eastern' ? 'selected' : '' %>>Middle Eastern</option>
+          <option value="North American" <%= dinner.cuisine === 'North American' ? 'selected' : '' %>>North American</option>
+          <option value="South American" <%= dinner.cuisine === 'South American' ? 'selected' : '' %>>South American</option>
+          <option value="Oceanian" <%= dinner.cuisine === 'Oceanian' ? 'selected' : '' %>>Oceanian</option>
+          <option value="Others" <%= dinner.cuisine === 'Others' ? 'selected' : '' %>>Others</option>
         </select>
       <label for="preference">Preference:</label>
         <select id="preference" name="preference">
