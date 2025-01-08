@@ -29,17 +29,17 @@ const dinnerSchema = new Schema({
   },
   preference: {
     type: String,
-    enum: ['Dairy-Free', 'Vegan', 'Vegetarian', 'Gluten-Free', 'Low-Carb', 'Halal', 'Kosher'],
+    enum: ['None', 'Dairy-Free', 'Vegan', 'Vegetarian', 'Gluten-Free', 'Low-Carb', 'Halal', 'Kosher'],
     required: false
   },
   seasonal: {
     type: String,
-    enum: ['Spring', 'Summer', 'Autumn', 'Winter'],
+    enum: ['None', 'Spring', 'Summer', 'Autumn', 'Winter'],
     required: true
   },
   occasion: {
     type: String,
-    enum: ['Anniversaries', 'Birthdays', 'Casual', 'Fancy', 'Holidays', 'Religious', 'Others'],
+    enum: ['None', 'Anniversaries', 'Birthdays', 'Casual', 'Fancy', 'Holidays', 'Religious', 'Others'],
     required: true
   },
   description: {
@@ -48,10 +48,6 @@ const dinnerSchema = new Schema({
     maxlength: 160
   },
   image: {
-    type: String,
-    required: true
-  },
-  likes: {
     type: String,
     required: true
   },
