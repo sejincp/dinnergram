@@ -8,8 +8,9 @@ const ensureSignedIn = require('../middleware/ensure-signed-in');
 // All routes start with '/dinners'
 
 // GET /dinners (index functionality) UN-PROTECTED - all users can access
-router.get('/', (req, res) => {
-  res.render('dinners/index.ejs', { title: 'All Dinners' });
+router.get('/', async (req, res) => {
+  const dinners = await Dinner.find({}).populate('username');
+  res.render('dinners/index.ejs', { title: 'All Dinners', dinners });
 });
 
 // GET /dinners/new (new functionality) PROTECTED - only signed in users can access
