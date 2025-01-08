@@ -17,15 +17,20 @@ const dinnerSchema = new Schema({
     enum: ['Dine-out', 'Homemade', 'Takeout'],
     required: true
   },
-  cuisine: {
+  category: {
     type: String,
-    enum: ['Asian', 'African', 'European', 'Middle Eastern', 'North American', 'Oceanian', 'South American'],
+    enum: ['Beverages', 'Desserts', 'Fruits', 'Meat', 'Seafood', 'Vegetables', 'Others'],
     required: true
   },
-  foodtype: {
+  cuisine: {
     type: String,
-    enum: ['Beverages', 'Desserts', 'Meat', 'Seafood', 'Vegan', 'Vegetarian'],
+    enum: ['Asian', 'African', 'European', 'Middle Eastern', 'North American', 'South American', 'Oceanian', 'Others'],
     required: true
+  },
+  preference: {
+    type: String,
+    enum: ['Dairy-Free', 'Vegan', 'Vegetarian', 'Gluten-Free', 'Low-Carb', 'Halal', 'Kosher'],
+    required: false
   },
   seasonal: {
     type: String,
@@ -34,7 +39,7 @@ const dinnerSchema = new Schema({
   },
   occasion: {
     type: String,
-    enum: ['Anniversaries', 'Birthdays', 'Casual', 'Fancy', 'Holidays', 'Religious'],
+    enum: ['Anniversaries', 'Birthdays', 'Casual', 'Fancy', 'Holidays', 'Religious', 'Others'],
     required: true
   },
   description: {

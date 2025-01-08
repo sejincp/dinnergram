@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const dinner = require('../models/dinner')
 
 // Middleware to protect selected routes
 const ensureSignedIn = require('../middleware/ensure-signed-in');
@@ -15,6 +16,17 @@ router.get('/', (req, res) => {
 router.get('/new', ensureSignedIn, (req, res) => {
   res.render('dinners/new.ejs', { title: 'Share your Dinner!' });
 });
+
+// POST /dinners (create functionlity)
+router.post('/', async (req, res) => {
+  try {
+    const dinner = await dinner.create(req.body);
+    res.redirect('/dinners');
+  } catch (err) {
+    console.log(err);
+    res.redirect('dinners/new');
+  }
+})
 
 
 

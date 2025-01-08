@@ -1,6 +1,6 @@
 <%- include('../partials/header.ejs') %>
     <h1>Share your Dinners</h1>
-    <form>
+    <form action="/dinners" method="POST">
       <label for="title">Food Name:</label>
       <input type="text" name="title" id="title" />
       <label for="mealsource">Meal Source:</label>
@@ -9,6 +9,16 @@
           <option value="Homemade">Homemade</option>
           <option value="Takeout">Takeout</option>
         </select>
+        <label for="category">Category:</label>
+          <select id="category" name="category" required>
+            <option value="Beverages">Beverages</option>
+            <option value="Desserts">Desserts</option>
+            <option value="Fruits">Fruits</option>
+            <option value="Meat">Meat</option>
+            <option value="Seafood">Seafood</option>
+            <option value="Vegetables">Vegetables</option>
+            <option value="Others">Others</option>
+          </select>
       <label for="cuisine">Cuisine:</label>
         <select id="cuisine" name="cuisine" required>
           <option value="Asian">Asian</option>
@@ -16,17 +26,19 @@
           <option value="European">European</option>
           <option value="Middle Eastern">Middle Eastern</option>
           <option value="North American">North American</option>
-          <option value="Oceanian">Oceanian</option>
           <option value="South American">South American</option>
+          <option value="Oceanian">Oceanian</option>
+          <option value="Others">Others</option>
         </select>
-      <label for="foodtype">Food Type:</label>
-        <select id="foodtype" name="foodtype" required>
-          <option value="Beverages">Beverages</option>
-          <option value="Desserts">Desserts</option>
-          <option value="Meat">Meat</option>
-          <option value="Seafood">Seafood</option>
+      <label for="preference">Preference:</label>
+        <select id="preference" name="preference">
+          <option value="Dairy-Free">Dairy-Free</option>
           <option value="Vegan">Vegan</option>
           <option value="Vegetarian">Vegetarian</option>
+          <option value="Gluten-Free">Gluten-Free</option>
+          <option value="Low-Carb">Low-Carb</option>
+          <option value="Halal">Halal</option>
+          <option value="Kosher">Kosher</option>
         </select>
       <label for="seasonal">Seasonal:</label>
         <select id="seasonal" name="seasonal" required>
@@ -43,6 +55,7 @@
           <option value="Fancy">Fancy</option>
           <option value="Holidays">Holidays</option>
           <option value="Religious">Religious</option>
+          <option value="Others">Others</option>
         </select>
       <label for="description">Description:</label>
       <input type="text" name="description" id="description" />
