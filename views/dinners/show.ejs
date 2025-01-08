@@ -19,6 +19,10 @@
     </div>
     <div class="btn">
         <a href="/dinners">Back to List</a>
+        <% if (dinner.username?._id.equals(user?._id)) { %>
         <a href="/dinners">Edit this Dinner</a>
+        <% } else { %>
+        <p> <%= dinner.username.username %> shared this.</p>
+        <% } %>
     </div> 
 <%- include('../partials/footer.ejs') %>

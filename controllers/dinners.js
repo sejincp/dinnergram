@@ -20,7 +20,7 @@ router.get('/new', ensureSignedIn, (req, res) => {
 
 // GET /dinners/:dinnerId (SHOW functionality)
 router.get('/:dinnerId', ensureSignedIn, async (req, res) => {
-  const dinner = await Dinner.findById(req.params.dinnerId);
+  const dinner = await Dinner.findById(req.params.dinnerId).populate('username');
   res.render('dinners/show.ejs', { title: 'Details', dinner})
 });
 
