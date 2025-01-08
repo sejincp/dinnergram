@@ -41,10 +41,10 @@ router.get('/sign-in', (req, res) => {
 router.post('/sign-in', async (req, res) => {
   try {
     const user = await User.findOne({ username: req.body.username });
-    if (!user) throw new Error('Invalid username');
+    if (!user) throw new Error('Invalid username. Please try again.');
     // Verify the password
     const valid = bcrypt.compareSync(req.body.password, user.password);
-    if (!valid) throw new Error('Invalid password');
+    if (!valid) throw new Error('Invalid password. Please try again.');
     req.session.user_id = user._id;
     // Update path to the functionality YOU want
     res.redirect('/');

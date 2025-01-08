@@ -1,5 +1,9 @@
 <%- include('./partials/header.ejs') %>
 <!-- Home Page's Content -->
+<% if (user) { %>
+  <h1>Hi <%= user.username %>,</h1>
+  <% } else { %>
+  <% } %>
  <h1>What's for dinner?</h1>
  <h1>Share, explore, and decide together.</h1>
  <div class="btn">
