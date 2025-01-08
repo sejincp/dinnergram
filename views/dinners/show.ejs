@@ -1,8 +1,7 @@
 <%- include('../partials/header.ejs') %>
-    <h1>All Dinners</h1>
+    <h1>Details</h1>
     <div>
         <ul>
-            <% dinners.forEach((dinner) => { %>
             <h3><%= dinner.username.username %>'s Dinner</h3>
             <li><%= dinner.mealsource %></li>
             <li><%= dinner.image %></li>
@@ -13,10 +12,13 @@
             <li><%= dinner.seasonal %></li>
             <li><%= dinner.occasion %></li>
             <% if (dinner.description) { %>
-                <li><%= dinner.description %></li>
-                <% } %>
-            <a href="/dinners/<%= dinner._id %>">See details</a>
-            <% }) %>
+            <li><%= dinner.description %></li>
+            <% } %>
+            <p>Added on: <%= dinner.createdAt.toLocaleDateString() %></p>
         </ul>
     </div>
+    <div class="btn">
+        <a href="/dinners">Back to List</a>
+        <a href="/dinners">Edit this Dinner</a>
+    </div> 
 <%- include('../partials/footer.ejs') %>

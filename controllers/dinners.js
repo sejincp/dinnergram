@@ -18,8 +18,15 @@ router.get('/new', ensureSignedIn, (req, res) => {
   res.render('dinners/new.ejs', { title: 'Share your Dinner!' });
 });
 
+// GET /dinners/:dinnerId (SHOW functionality)
+router.get('/:dinnerId', ensureSignedIn, async (req, res) => {
+  const dinner = await Dinner.findById(req.params.dinnerId);
+  res.render('dinners/show.ejs', { title: 'Details', dinner})
+});
+
+
 // POST /dinners (create functionality)
-router.post('/', async (req, res) => {
+router.post('/', ensureSignedIn, async (req, res) => {
   try {
     req.body.username = req.user._id;
     await Dinner.create(req.body);
