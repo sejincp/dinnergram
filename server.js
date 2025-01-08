@@ -37,10 +37,10 @@ app.use(session({
   saveUninitialized: true
 }));
 
+// ----- Routes -----
+
 // Add the user (if logged in) to req.user & res.locals
 app.use(require('./middleware/add-user-to-locals-and-req'));
-
-// ----- Routes -----
 
 // GET /  (home page functionality)
 app.get('/', (req, res) => {
@@ -55,8 +55,8 @@ app.use('/dinners', require('./controllers/dinners'));
 // Any requests that get this far must have a signed in 
 // user thanks to ensureSignedIn middleware
 app.use(require('./middleware/ensure-signed-in'));
-// Any controller/routes mounted below here will have
-// ALL routes protected by the ensureSignedIn middleware
+// ----- Any controller/routes mounted below here -----
+// will have ALL routes protected by the ensureSignedIn middleware
 
 app.get('/dinners', (req, res) => {
   res.render('./dinners/index.ejs', { title: 'Dinnergram home' });

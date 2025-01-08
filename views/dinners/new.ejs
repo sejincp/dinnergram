@@ -1,0 +1,53 @@
+<%- include('../partials/header.ejs') %>
+    <h1>Share your Dinners</h1>
+    <form>
+      <label for="title">Food Name:</label>
+      <input type="text" name="title" id="title" />
+      <label for="mealsource">Meal Source:</label>
+        <select id="mealsource" name="mealsource" required>
+          <option value="Dine-out">Dine-out</option>
+          <option value="Homemade">Homemade</option>
+          <option value="Takeout">Takeout</option>
+        </select>
+      <label for="cuisine">Cuisine:</label>
+        <select id="cuisine" name="cuisine" required>
+          <option value="Asian">Asian</option>
+          <option value="African">African</option>
+          <option value="European">European</option>
+          <option value="Middle Eastern">Middle Eastern</option>
+          <option value="North American">North American</option>
+          <option value="Oceanian">Oceanian</option>
+          <option value="South American">South American</option>
+        </select>
+      <label for="foodtype">Food Type:</label>
+        <select id="foodtype" name="foodtype" required>
+          <option value="Beverages">Beverages</option>
+          <option value="Desserts">Desserts</option>
+          <option value="Meat">Meat</option>
+          <option value="Seafood">Seafood</option>
+          <option value="Vegan">Vegan</option>
+          <option value="Vegetarian">Vegetarian</option>
+        </select>
+      <label for="seasonal">Seasonal:</label>
+        <select id="seasonal" name="seasonal" required>
+          <option value="Spring">Spring</option>
+          <option value="Summer">Summer</option>
+          <option value="Autumn">Autumn</option>
+          <option value="Winter">Winter</option>
+        </select>
+      <label for="occasion">Occasion:</label>
+        <select id="occasion" name="occasion" required>
+          <option value="Anniversaries">Anniversaries</option>
+          <option value="Birthdays">Birthdays</option>
+          <option value="Casual">Casual</option>
+          <option value="Fancy">Fancy</option>
+          <option value="Holidays">Holidays</option>
+          <option value="Religious">Religious</option>
+        </select>
+      <label for="description">Description:</label>
+      <input type="text" name="description" id="description" />
+      <label for="image">Image:</label>
+      <input type="text" name="image" id="image" />
+      <button type="submit">Share</button>
+    </form>
+<%- include('../partials/footer.ejs') %>
