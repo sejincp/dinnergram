@@ -2,7 +2,7 @@
     <h1>Details</h1>
     <div>
         <ul>
-            <h3><%= dinner.username.username %>'s Dinner</h3>
+            <h3><%= dinner.user.username %>'s Dinner</h3>
             <li><%= dinner.mealsource %></li>
             <li><%= dinner.image %></li>
             <li><%= dinner.title %></li>
@@ -19,10 +19,10 @@
     </div>
     <div class="btn">
         <a href="/dinners">Back to List</a>
-        <% if (dinner.username?._id.equals(user?._id)) { %>
-        <a href="/dinners">Edit this Dinner</a>
+        <% if (dinner.user?._id.equals(user?._id)) { %>
+        <a href="/dinners/<%= dinner._id %>/edit">Edit this Dinner</a>
         <% } else { %>
-        <p> <%= dinner.username.username %> shared this.</p>
+        <p> <%= dinner.user.username %> shared this.</p>
         <% } %>
     </div> 
 <%- include('../partials/footer.ejs') %>

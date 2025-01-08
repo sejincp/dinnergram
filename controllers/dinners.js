@@ -9,7 +9,7 @@ const ensureSignedIn = require('../middleware/ensure-signed-in');
 
 // GET /dinners (index functionality) UN-PROTECTED - all users can access
 router.get('/', async (req, res) => {
-  const dinners = await Dinner.find({}).populate('username');
+  const dinners = await Dinner.find({}).populate('user');
   res.render('dinners/index.ejs', { title: 'All Dinners', dinners });
 });
 
@@ -18,17 +18,16 @@ router.get('/new', ensureSignedIn, (req, res) => {
   res.render('dinners/new.ejs', { title: 'Share your Dinner!' });
 });
 
-// GET /dinners/:dinnerId (SHOW functionality)
+// GET /dinners/:dinnerId (SHOW functionality / action)
 router.get('/:dinnerId', ensureSignedIn, async (req, res) => {
-  const dinner = await Dinner.findById(req.params.dinnerId).populate('username');
+  const dinner = await Dinner.findById(req.params.dinnerId).populate('user');
   res.render('dinners/show.ejs', { title: 'Details', dinner})
 });
 
-
-// POST /dinners (create functionality)
+// POST /dinners (CREATE functionality / action)
 router.post('/', ensureSignedIn, async (req, res) => {
   try {
-    req.body.username = req.user._id;
+    req.body.user = req.user._id;
     await Dinner.create(req.body);
     res.redirect('/dinners');
   } catch (err) {
@@ -37,6 +36,8 @@ router.post('/', ensureSignedIn, async (req, res) => {
   }
 });
 
+// DELETE /dinners/:dinnerId (DELETE functionality / action)
 
+// GET /dinners/dinnerId/edit (EDIT functionality / action)
 
 module.exports = router;
