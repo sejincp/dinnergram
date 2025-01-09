@@ -2,74 +2,75 @@
     <h1>Edit your Dinner</h1>
     <form action="/dinners/<%= dinner._id %>?_method=PUT" method="POST">
       <label for="title">Food Name:</label>
-      <input 
-          type="text" 
-          id="title" 
-          name="title" 
-          value="<%= dinner.title %>" 
-          required
-        >
+        <input 
+            type="text" 
+            id="title" 
+            name="title" 
+            value="<%= dinner.title %>" 
+            required
+          >
       <label for="mealsource">Meal Source:</label>
-        <select id="mealsource" name="mealsource" value="" required>
-          <option value="Dine-out">Dine-out</option>
-          <option value="Homemade">Homemade</option>
-          <option value="Takeout">Takeout</option>
+        <select id="mealsource" name="mealsource" required>
+          <option value="Dine-out" <%= dinner.mealsource === 'Dine-out' ? 'selected' : '' %>>Dine-out</option>
+          <option value="Homemade" <%= dinner.mealsource === 'Homemade' ? 'selected' : '' %>>Homemade</option>
+          <option value="Takeout" <%= dinner.mealsource === 'Takeout' ? 'selected' : '' %>>Takeout</option>
         </select>
-        <label for="category">Category:</label>
+      <label for="category">Category:</label>
           <select id="category" name="category" required>
-            <option value="Beverages">Beverages</option>
-            <option value="Desserts">Desserts</option>
-            <option value="Fruits">Fruits</option>
-            <option value="Meat">Meat</option>
-            <option value="Seafood">Seafood</option>
-            <option value="Vegetables">Vegetables</option>
-            <option value="Others">Others</option>
+            <option value="Beverages" <%= dinner.category === 'Beverages' ? 'selected' : ''%>>Beverages</option>
+            <option value="Desserts" <%= dinner.category === 'Desserts' ? 'selected' : ''%>>Desserts</option>
+            <option value="Fruits" <%= dinner.category === 'Fruits' ? 'selected' : ''%>>Fruits</option>
+            <option value="Meat" <%= dinner.category === 'Meat' ? 'selected' : ''%>>Meat</option>
+            <option value="Seafood" <%= dinner.category === 'Seafood' ? 'selected' : ''%>>Seafood</option>
+            <option value="Vegetables" <%= dinner.category === 'Vegetables' ? 'selected' : ''%>>Vegetables</option>
+            <option value="Others" <%= dinner.category === 'Others' ? 'selected' : ''%>>Others</option>
           </select>
       <label for="cuisine">Cuisine:</label>
         <select id="cuisine" name="cuisine" required>
-          <option value="Asian" <%= dinner.cuisine === 'Asian' ? 'selected' : '' %>>Asian</option>
-          <option value="African" <%= dinner.cuisine === 'African' ? 'selected' : '' %>>African</option>
-          <option value="European" <%= dinner.cuisine === 'European' ? 'selected' : '' %>>European</option>
-          <option value="Middle Eastern" <%= dinner.cuisine === 'Middle Eastern' ? 'selected' : '' %>>Middle Eastern</option>
-          <option value="North American" <%= dinner.cuisine === 'North American' ? 'selected' : '' %>>North American</option>
-          <option value="South American" <%= dinner.cuisine === 'South American' ? 'selected' : '' %>>South American</option>
-          <option value="Oceanian" <%= dinner.cuisine === 'Oceanian' ? 'selected' : '' %>>Oceanian</option>
-          <option value="Others" <%= dinner.cuisine === 'Others' ? 'selected' : '' %>>Others</option>
+          <option value="Asian" <%= dinner.cuisine === 'Asian' ? 'selected' : ''%>>Asian</option>
+          <option value="African" <%= dinner.cuisine === 'African' ? 'selected' : ''%>>African</option>
+          <option value="European" <%= dinner.cuisine === 'European' ? 'selected' : ''%>>European</option>
+          <option value="Middle Eastern" <%= dinner.cuisine === 'Middle Eastern' ? 'selected' : ''%>>Middle Eastern</option>
+          <option value="North American" <%= dinner.cuisine === 'North American' ? 'selected' : ''%>>North American</option>
+          <option value="South American" <%= dinner.cuisine === 'South American' ? 'selected' : ''%>>South American</option>
+          <option value="Oceanian" <%= dinner.cuisine === 'Oceanian' ? 'selected' : ''%>>Oceanian</option>
+          <option value="Others" <%= dinner.cuisine === 'Others' ? 'selected' : ''%>>Others</option>
         </select>
       <label for="preference">Preference:</label>
         <select id="preference" name="preference">
-          <option value="None">None</option>
-          <option value="Dairy-Free">Dairy-Free</option>
-          <option value="Vegan">Vegan</option>
-          <option value="Vegetarian">Vegetarian</option>
-          <option value="Gluten-Free">Gluten-Free</option>
-          <option value="Low-Carb">Low-Carb</option>
-          <option value="Halal">Halal</option>
-          <option value="Kosher">Kosher</option>
+          <option value="None" <%= dinner.preference === 'None' ? 'selected' : ''%>>None</option>
+          <option value="Dairy-Free" <%= dinner.preference === 'Dairy-Free' ? 'selected' : ''%>>Dairy-Free</option>
+          <option value="Vegan" <%= dinner.preference === 'Vegan' ? 'selected' : ''%>>Vegan</option>
+          <option value="Vegetarian" <%= dinner.preference === 'Vegetarian' ? 'selected' : ''%>>Vegetarian</option>
+          <option value="Gluten-Free" <%= dinner.preference === 'Gluten-Free' ? 'selected' : ''%>>Gluten-Free</option>
+          <option value="Low-Carb" <%= dinner.preference === 'Low-Carb' ? 'selected' : ''%>>Low-Carb</option>
+          <option value="Halal" <%= dinner.preference === 'Halal' ? 'selected' : ''%>>Halal</option>
+          <option value="Kosher" <%= dinner.preference === 'Kosher' ? 'selected' : ''%>>Kosher</option>
         </select>
       <label for="seasonal">Seasonal:</label>
         <select id="seasonal" name="seasonal" required>
-          <option value="None">None</option>
-          <option value="Spring">Spring</option>
-          <option value="Summer">Summer</option>
-          <option value="Autumn">Autumn</option>
-          <option value="Winter">Winter</option>
+          <option value="None" <%= dinner.seasonal === 'None' ? 'selected' : ''%>>None</option>
+          <option value="Spring" <%= dinner.seasonal === 'Spring' ? 'selected' : ''%>>Spring</option>
+          <option value="Summer" <%= dinner.seasonal === 'Summer' ? 'selected' : ''%>>Summer</option>
+          <option value="Autumn" <%= dinner.seasonal === 'Autumn' ? 'selected' : ''%>>Autumn</option>
+          <option value="Winter" <%= dinner.seasonal === 'Winter' ? 'selected' : ''%>>Winter</option>
         </select>
       <label for="occasion">Occasion:</label>
         <select id="occasion" name="occasion" required>
-          <option value="None">None</option>
-          <option value="Anniversaries">Anniversaries</option>
-          <option value="Birthdays">Birthdays</option>
-          <option value="Casual">Casual</option>
-          <option value="Fancy">Fancy</option>
-          <option value="Holidays">Holidays</option>
-          <option value="Religious">Religious</option>
-          <option value="Others">Others</option>
+          <option value="None" <%= dinner.occasion === 'None' ? 'selected' : ''%>>None</option>
+          <option value="Anniversaries" <%= dinner.occasion === 'Anniversaries' ? 'selected' : ''%>>Anniversaries</option>
+          <option value="Birthdays" <%= dinner.occasion === 'Birthdays' ? 'selected' : ''%>>Birthdays</option>
+          <option value="Casual" <%= dinner.occasion === 'Casual' ? 'selected' : ''%>>Casual</option>
+          <option value="Fancy" <%= dinner.occasion === 'Fancy' ? 'selected' : ''%>>Fancy</option>
+          <option value="Holidays" <%= dinner.occasion === 'Holidays' ? 'selected' : ''%>>Holidays</option>
+          <option value="Religious" <%= dinner.occasion === 'Religious' ? 'selected' : ''%>>Religious</option>
+          <option value="Others" <%= dinner.occasion === 'Others' ? 'selected' : ''%>>Others</option>
         </select>
       <label for="description">Description:</label>
-      <input type="text" name="description" id="description" />
+        <textarea name="description" id="description"><%= dinner.description %></textarea>
       <label for="image">Image:</label>
-      <input type="text" name="image" id="image" />
-      <button type="submit">Share</button>
+        <input type="text" name="image" id="image" value="<%= dinner.image %>" />
+      <button type="submit">Update</button>
     </form>
+    <a href="/dinners/<%= dinner._id %>">Back to Details</a>
 <%- include('../partials/footer.ejs') %>

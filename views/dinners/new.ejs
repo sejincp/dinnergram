@@ -2,7 +2,7 @@
     <h1>Share your Dinners</h1>
     <form action="/dinners" method="POST">
       <label for="title">Food Name:</label>
-      <input type="text" name="title" id="title" />
+      <input type="text" name="title" id="title" placeholder="Food Name"/>
       <label for="mealsource">Meal Source:</label>
         <select id="mealsource" name="mealsource" required>
           <option value="Dine-out">Dine-out</option>
@@ -61,9 +61,9 @@
           <option value="Others">Others</option>
         </select>
       <label for="description">Description:</label>
-      <input type="text" name="description" id="description" />
+      <textarea name="description" id="description" placeholder="Description"></textarea>
       <label for="image">Image:</label>
-      <input type="text" name="image" id="image" />
+      <input type="text" name="image" id="image" placeholder="Image url"/>
       <button type="submit">Share</button>
     </form>
 <%- include('../partials/footer.ejs') %>

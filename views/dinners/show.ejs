@@ -21,6 +21,9 @@
         <a href="/dinners">Back to List</a>
         <% if (dinner.user?._id.equals(user?._id)) { %>
         <a href="/dinners/<%= dinner._id %>/edit">Edit this Dinner</a>
+        <form action="/dinners/<%= dinner._id %>?_method=DELETE" method="POST">
+            <button type="submit">Delete this Dinner</button>
+        </form>
         <% } else { %>
         <p> <%= dinner.user.username %> shared this.</p>
         <% } %>
