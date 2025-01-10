@@ -1,31 +1,34 @@
 <%- include('../partials/header.ejs') %>
-    <h1>Details</h1>
-    <div>
-        <ul>
-            <h3><%= dinner.user.username %>'s Dinner</h3>
-            <li><%= dinner.mealsource %></li>
-            <li><%= dinner.image %></li>
-            <li><%= dinner.title %></li>
-            <li><%= dinner.category %></li>
-            <li><%= dinner.cuisine %></li>
-            <li><%= dinner.preference %></li>
-            <li><%= dinner.seasonal %></li>
-            <li><%= dinner.occasion %></li>
-            <% if (dinner.description) { %>
-            <li><%= dinner.description %></li>
+<div class="single-column-form-wrapper">
+    <h2 class="title"><%= title %></h2>
+        <div class="detail-container">
+            <ul>
+                <h3><%= dinner.user.username %>'s Dinner</h3>
+                <li><%= dinner.mealsource %></li>
+                <li><%= dinner.image %></li>
+                <li><%= dinner.title %></li>
+                <li><%= dinner.category %></li>
+                <li><%= dinner.cuisine %></li>
+                <li><%= dinner.preference %></li>
+                <li><%= dinner.seasonal %></li>
+                <li><%= dinner.occasion %></li>
+                <% if (dinner.description) { %>
+                <li><%= dinner.description %></li>
+                <% } %>
+                <p>Added on: <%= dinner.createdAt.toLocaleDateString() %></p>
+            </ul>
+        </div>
+        <div style="text-align: center; margin-top: 1rem;">
+            <a href="/dinners" style="color: #FBE959">Back to List</a>
+            <% if (dinner.user?._id.equals(user?._id)) { %>
+            <br>
+            <a href="/dinners/<%= dinner._id %>/edit" style="color: #FBE959">Edit this Dinner</a>
+            <form action="/dinners/<%= dinner._id %>?_method=DELETE" method="POST">
+                <button type="submit">Delete this Dinner</button>
+            </form>
+            <% } else { %>
+            <p> <%= dinner.user.username %> shared this.</p>
             <% } %>
-            <p>Added on: <%= dinner.createdAt.toLocaleDateString() %></p>
-        </ul>
-    </div>
-    <div class="btn">
-        <a href="/dinners">Back to List</a>
-        <% if (dinner.user?._id.equals(user?._id)) { %>
-        <a href="/dinners/<%= dinner._id %>/edit">Edit this Dinner</a>
-        <form action="/dinners/<%= dinner._id %>?_method=DELETE" method="POST">
-            <button type="submit">Delete this Dinner</button>
-        </form>
-        <% } else { %>
-        <p> <%= dinner.user.username %> shared this.</p>
-        <% } %>
-    </div> 
+        </div> 
+</div>
 <%- include('../partials/footer.ejs') %>

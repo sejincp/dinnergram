@@ -45,7 +45,6 @@ const dinnerSchema = new Schema({
   description: {
     type: String,
     required: false,
-    maxlength: 160
   },
   image: {
     type: String,

@@ -1,5 +1,6 @@
 <%- include('../partials/header.ejs') %>
-    <h1>Share your Dinners</h1>
+<div class="single-column-form-wrapper">
+  <h2 class="title"><%= title %></h2>
     <form action="/dinners" method="POST">
       <label for="title">Food Name:</label>
       <input type="text" name="title" id="title" placeholder="Food Name"/>

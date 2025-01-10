@@ -1,13 +1,75 @@
-<%- include('./partials/header.ejs') %>
-<!-- Home Page's Content -->
-<% if (user) { %>
-  <h1>Hi <%= user.username %>,</h1>
-  <% } else { %>
-  <% } %>
- <h1>What's for dinner?</h1>
- <h1>Share, explore, and decide together.</h1>
- <div class="btn">
-  <a href="/dinners">GET INSPIRED</a>
-  <a href="/dinners/new">SHARE MY DINNER</a>
- </div> 
-<%- include('./partials/footer.ejs') %>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dinnergram - <%= title %></title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
+  </head>
+  <body>
+    <nav id="transparent-nav" class="p-3">
+      <div class="container-fluid">
+        <div class="d-flex justify-content-between align-items-center">
+
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0">
+          <img src="/assets/logo-full-dinnergram.png" alt="dinnergram logo">
+        </a>
+        <div class="d-flex align-items-center">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a href="/dinners/new">GET INSPIRED</a>
+            </li>
+            <li class="nav-item">
+              <a href="/dinners/new">SHARE MY DINNER</a>
+            </li>
+          </ul>
+          <div class="dropdown text-end">
+            <a href="#" class="d-block text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false" style="color: #fff;">
+              <% if (user) { %>
+              <%= user.username %>
+              <% } else { %>
+              Guest
+              <% } %>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-lg-end">
+              <% if (user) { %>
+              <li class="dropdown-item">
+                <a href="/auth/sign-out" style="color: #333;">SIGN OUT</a>
+              </li>
+              <% } else { %>
+              <li class="dropdown-item">
+                <a href="/auth/sign-up" style="color: #333;">SIGN UP</a>
+              </li>
+              <li class="dropdown-item">
+                <a href="/auth/sign-in" style="color: #333;">SIGN IN</a>
+              </li>
+              <% } %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <main>
+    <section id="hero">
+      <div class="hero-full image-overlay">
+      </div>
+      <div style="width: 100%; position: relative;">
+        <div class="container-overlay">
+          <div class="hero-container">
+            <% if (user) { %>
+            <h1>Hi <%= user.username %>,</h1>
+            <% } else { %>
+            <% } %>
+            <h1>What's for dinner?</h1>
+            <h1>Share, explore, and decide together.</h1>
+            <div class="hero-container-btn">
+              <a class="btn-multiple" href="/dinners">GET INSPIRED</a>
+              <a class="btn-multiple" href="/dinners/new">SHARE MY DINNER</a>
+            </div> 
+          </div>
+        </div>
+      </div>
+    </section>
+    <%- include('./partials/footer.ejs') %>

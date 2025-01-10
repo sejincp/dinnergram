@@ -44,7 +44,7 @@ app.use(require('./middleware/add-user-to-locals-and-req'));
 
 // GET /  (home page functionality)
 app.get('/', (req, res) => {
-  res.render('home.ejs', { title: 'Dinnergram home' });
+  res.render('home.ejs', { title: `What's for dinner?` });
 });
 
 // The "starts with" path is pre-pended to the paths

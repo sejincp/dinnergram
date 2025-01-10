@@ -1,22 +1,51 @@
 <%- include('../partials/header.ejs') %>
-    <h1>All Dinners</h1>
-    <div>
-        <ul>
-            <% dinners.forEach((dinner) => { %>
-            <h3><%= dinner.user.username %>'s Dinner</h3>
-            <li><%= dinner.mealsource %></li>
-            <li><%= dinner.image %></li>
-            <li><%= dinner.title %></li>
-            <li><%= dinner.category %></li>
-            <li><%= dinner.cuisine %></li>
-            <li><%= dinner.preference %></li>
-            <li><%= dinner.seasonal %></li>
-            <li><%= dinner.occasion %></li>
-            <% if (dinner.description) { %>
-                <li><%= dinner.description %></li>
+<h2 class="title"><%= title %></h2>
+<div class="row row-cols-1 row-cols-md-3 g-4 page-width">
+    <% dinners.forEach((dinner) => { %>
+    <div class="col">
+        <div class="card" style="width: 18rem; margin: auto;">
+            <div class="card-header">
+                <h5 class="card-title">
+                    <% const userId = function (username) { %>
+                        <% const lastIndex = username.indexOf('@'); %>
+                        <% return username.slice(0, lastIndex); %>
+                    <% } %>
+                    <%= userId(dinner.user.username) %>'s Dinner
+                    <span class="<% if (dinner.mealsource === 'Homemade') { %>tag-homemade">
+                        <% } if (dinner.mealsource === 'Takeout') { %>tag-takeout">
+                        <% } if (dinner.mealsource === 'Dine-out') { %>tag-dine-out">
+                        <% }%>
+                        <%= dinner.mealsource %></span></h5>
+            </div>
+            <span><%= dinner.image %></span>
+            <img src="/assets/image-holder-icon-614x460.png" class="card-img-top" alt="image holder">
+            <div class="card-body">
+                <div class="list-group-flush tag-group">
+                    <h5><%= dinner.title %></h5>
+                    <span class="tag"><%= dinner.category %></span>
+                    <span class="tag"><%= dinner.cuisine %></span>
+                    <% if (dinner.preference === 'None') { %>
+                    <% } else { %>
+                    <span class="tag"><%= dinner.preference %></span>
+                    <% } %>
+                    <% if (dinner.seasonal === 'None') { %>
+                    <% } else { %>
+                    <span class="tag"><%= dinner.seasonal %></span>
+                    <% } %>
+                    <% if (dinner.occasion === 'None') { %>
+                    <% } else { %>
+                    <span class="tag"><%= dinner.occasion %></span>
+                    <% } %>
+                </div>
+                <% if (dinner.description) { %>
+                <p class="list-group list-group-flush card-desc">
+                <%= dinner.description %>
                 <% } %>
-            <a href="/dinners/<%= dinner._id %>">See details</a>
-            <% }) %>
-        </ul>
+                </p>
+                <a href="/dinners/<%= dinner._id %>">See details</a>
+            </div>
+        </div>
     </div>
+    <% }) %>
+</div>
 <%- include('../partials/footer.ejs') %>
