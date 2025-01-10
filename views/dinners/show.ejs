@@ -1,11 +1,17 @@
 <%- include('../partials/header.ejs') %>
-<div class="single-column-form-wrapper">
+<div class="page-width">
     <h2 class="title"><%= title %></h2>
         <div class="detail-container">
             <ul>
                 <h3><%= dinner.user.username %>'s Dinner</h3>
                 <li><%= dinner.mealsource %></li>
-                <li><%= dinner.image %></li>
+                <li>
+                    <% if (dinner.image) { %> 
+                    <img src="<%= dinner.image %>">
+                    <% } else { %>
+                    <img src="/assets/image-holder-icon-614x460.png" class="card-img-top" alt="image holder">
+                    <% } %>
+                </li>
                 <li><%= dinner.title %></li>
                 <li><%= dinner.category %></li>
                 <li><%= dinner.cuisine %></li>

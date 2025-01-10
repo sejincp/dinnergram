@@ -16,7 +16,7 @@ delightful experience has never been simpler. Join us and make dinner planning a
 
 <img src="https://i.ibb.co/GnSRJMp/Screenshot-2025-01-10-at-06-33-21.png" alt="Sign In">
 
-<img src="https://i.ibb.co/HxVPqBs/Screenshot-2025-01-10-at-06-33-07.png" alt="Dinner List">
+<img src="https://i.ibb.co/ZS1XCCJ/Screenshot-2025-01-10-at-07-05-40.png" alt="Dinner List">
 
 <img src="https://i.ibb.co/jVwQ0Wh/Screenshot-2025-01-10-at-06-33-12.png
 https://i.ibb.co/GnSRJMp/" alt="Share screen">

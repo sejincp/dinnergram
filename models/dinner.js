@@ -48,7 +48,7 @@ const dinnerSchema = new Schema({
   },
   image: {
     type: String,
-    required: true
+    required: false
   },
   like: {
     type: [Schema.Types.ObjectId],

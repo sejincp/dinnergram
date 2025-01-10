@@ -17,8 +17,11 @@
                         <% }%>
                         <%= dinner.mealsource %></span></h5>
             </div>
-            <span><%= dinner.image %></span>
-            <img src="/assets/image-holder-icon-614x460.png" class="card-img-top" alt="image holder">
+            <% if (dinner.image) { %> 
+                <img src="<%= dinner.image %>">
+                <% } else { %>
+                <img src="/assets/image-holder-icon-614x460.png" class="card-img-top" alt="image holder">
+                <% } %>
             <div class="card-body">
                 <div class="list-group-flush tag-group">
                     <h5><%= dinner.title %></h5>
